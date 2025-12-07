@@ -223,7 +223,7 @@ void setup()
     Serial.println("\n=== Initializing Relay Board ===");
     if (relayBoard.begin(0x20)) {
       Serial.println("✓ Relay board ready!");
-      //relayBoard.relayOff(5);
+      //relayBoard.relayOn(5);
     } else {
       Serial.println("✗ Relay board initialization failed!");
     }
@@ -233,12 +233,7 @@ void loop()
 {
     lv_timer_handler();
 
-    if (fleg_dimnjak) {   // clean and reliable
-    relayBoard.relayOn(0);
-    } else {
-    relayBoard.relayOff(0);
-}
-
+    relayBoard.relayOn(5);
 
     // Update screen timeout manager
     screenTimeout.update();  
